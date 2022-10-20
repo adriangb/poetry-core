@@ -73,7 +73,7 @@ def test_build_wheel_with_bad_path_dev_dep_succeeds() -> None:
 
 
 def test_build_wheel_with_bad_path_dep_fails() -> None:
-    with pytest.raises(ValueError) as err, temporary_directory() as tmp_dir, cwd(
+    with pytest.raises(LookupError) as err, temporary_directory() as tmp_dir, cwd(
         os.path.join(fixtures, "with_bad_path_dep")
     ):
         api.build_wheel(tmp_dir)
@@ -124,7 +124,7 @@ def test_build_sdist_with_bad_path_dev_dep_succeeds() -> None:
 
 
 def test_build_sdist_with_bad_path_dep_fails() -> None:
-    with pytest.raises(ValueError) as err, temporary_directory() as tmp_dir, cwd(
+    with pytest.raises(LookupError) as err, temporary_directory() as tmp_dir, cwd(
         os.path.join(fixtures, "with_bad_path_dep")
     ):
         api.build_sdist(tmp_dir)
@@ -210,7 +210,7 @@ def test_prepare_metadata_for_build_wheel_with_bad_path_dev_dep_succeeds() -> No
 
 
 def test_prepare_metadata_for_build_wheel_with_bad_path_dep_succeeds() -> None:
-    with pytest.raises(ValueError) as err, temporary_directory() as tmp_dir, cwd(
+    with pytest.raises(LookupError) as err, temporary_directory() as tmp_dir, cwd(
         os.path.join(fixtures, "with_bad_path_dep")
     ):
         api.prepare_metadata_for_build_wheel(tmp_dir)

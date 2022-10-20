@@ -301,7 +301,7 @@ def test_create_poetry_omits_dev_dependencies_iff_with_dev_is_false() -> None:
 def test_create_poetry_fails_with_invalid_dev_dependencies_iff_with_dev_is_true() -> (
     None
 ):
-    with pytest.raises(ValueError) as err:
+    with pytest.raises(LookupError) as err:
         Factory().create_poetry(fixtures_dir / "project_with_invalid_dev_deps")
     assert "does not exist" in str(err.value)
 

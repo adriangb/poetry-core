@@ -35,7 +35,7 @@ class DirectoryDependency(Dependency):
         self._develop = develop
 
         if not self._full_path.exists():
-            raise ValueError(f"Directory {self._path} does not exist")
+            raise LookupError(f"Directory {self._path} does not exist")
 
         if self._full_path.is_file():
             raise ValueError(f"{self._path} is a file, expected a directory")

@@ -14,7 +14,7 @@ SAMPLE_PROJECT = Path(__file__).parent.parent / "fixtures" / "sample_project"
 
 
 def test_directory_dependency_must_exist() -> None:
-    with pytest.raises(ValueError):
+    with pytest.raises(LookupError):
         DirectoryDependency("demo", DIST_PATH / "invalid")
 
 
